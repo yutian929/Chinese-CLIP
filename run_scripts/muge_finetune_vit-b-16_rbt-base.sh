@@ -8,7 +8,8 @@
 # Command: bash run_scripts/muge_finetune_vit-b-16_rbt-base.sh ${DATAPATH}
 
 # Number of GPUs per GPU worker
-GPUS_PER_NODE=1 
+GPUS_PER_NODE=4
+export CUDA_VISIBLE_DEVICES=4,5,6,7
 # Number of GPU workers, for single-worker training, please set to 1
 WORKER_CNT=1
 # The ip address of the rank-0 worker, for single-worker training, please set to localhost
@@ -34,7 +35,7 @@ reset_optimizer="--reset-optimizer"
 
 # output options
 output_base_dir=${DATAPATH}/experiments/
-name=muge_finetune_vit-b-16_roberta-base_bs32_2080ti
+name=muge_finetune_vit-b-16_roberta-base_bs32_3090_4gpus
 save_step_frequency=999999 # disable it
 save_epoch_frequency=1
 log_interval=10
